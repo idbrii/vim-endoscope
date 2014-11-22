@@ -9,7 +9,7 @@ Do:
 # Auto append one
   a "! Hi " name\<C-;>\<C-;>\<C-;>\<C-;>
 
-Expect clojure (TODO: Added a string and a brace):
+Expect clojure (Added a string and a brace):
   (defn say-hello
     ([] (println "Hello there"))
     ([name] (println (str "Hello " name "! Hi " name))))

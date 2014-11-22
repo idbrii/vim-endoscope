@@ -1,0 +1,33 @@
+Given clojure (Lots of braces):
+  (defn say-hello
+    ([] (println "Hello there"))
+    ([name] (println (str "Hello " name))))
+
+Do (append braces):
+# Clear out the trailing braces
+  jjf)D
+# Auto append some
+  a "!"\<C-;>\<C-;>\<C-;>\<C-;>
+
+# This works in vim, but not in vader
+Expect clojure (TODO: Added a string and a brace):
+  (defn say-hello
+    ([] (println "Hello there"))
+    ([name] (println (str "Hello " name "!"))))
+
+Given cpp:
+  int main() {
+    ;
+    return 0;
+  }
+
+Do (add function call):
+  jIspeak("hello\<C-;>\<C-;>
+
+# This works in vim, but not in vader
+Expect cpp (TODO: Added new string wrapped in parens):
+  int main() {
+    speak("hello");
+    return 0;
+  }
+

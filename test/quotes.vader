@@ -1,0 +1,87 @@
+Given cpp:
+  #include "stream"
+  int main() {
+    ;
+    return 0;
+  }
+
+Do:
+# Clear out a trailing quote
+  $x
+# Auto append it
+  a.h\<C-;>
+
+Expect cpp (TODO: Modified end of include string):
+  #include "stream.h"
+  int main() {
+    ;
+    return 0;
+  }
+
+Do:
+# Add a new quoted string
+  2jIchar* c = "name\<C-;>
+
+Expect cpp (Added new quoted string):
+  #include "stream"
+  int main() {
+    char* c = "name";
+    return 0;
+  }
+
+
+
+Given python:
+  s = "stream"
+  def main():
+    pass
+
+Do:
+# Clear out a trailing quote
+  $x
+# Auto append it
+  a.h\<C-;>
+
+Expect python (Modified end of string):
+  s = "stream.h"
+  def main():
+    pass
+
+Do:
+# Add a new quoted string
+  2j0wCreturn s == 'bream\<C-;>
+
+Expect python (Added new quoted string):
+  s = "stream"
+  def main():
+    return s == 'bream'
+
+
+
+Given clojure (Lots of braces):
+  (defn say-hello
+    ([] (println "Hello there"))
+    ([name] (println (str "Hello " name))))
+
+Do:
+# Clear out some trailing quote and braces
+  j2f"D
+# Auto append them
+  a\<C-;>
+
+Expect clojure (Added a quote):
+  (defn say-hello
+    ([] (println "Hello there"
+    ([name] (println (str "Hello " name))))
+
+Do:
+# Clear out some trailing quote and braces
+  j2f"DF]x
+# Auto append them
+  iunused\<C-;>\<C-o>$\<C-;>\<C-;>\<C-;>
+
+Expect clojure (TODO: Added a quote and braces):
+  (defn say-hello
+    ([unused] (println "Hello there"))
+    ([name] (println (str "Hello " name))))
+
