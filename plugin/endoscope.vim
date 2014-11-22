@@ -24,6 +24,7 @@ function! s:CloseMatchingPair()
     let matched_pairs = {'(' : ')',
                    \  '[' : ']',
                    \  '{' : '}',
+                   \  '<' : '>',
                    \ }
     let unmatched_pairs = {'"' : '"',
                    \  "'" : "'",
