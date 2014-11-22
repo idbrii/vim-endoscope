@@ -1,0 +1,27 @@
+Given clojure (Lots of braces):
+  (defn say-hello
+    ([] (println "Hello there"))
+    ([name] (println (str "Hello " name))))
+
+Do:
+# Clear out the trailing braces
+  jjf)D
+# Auto append one
+  a "! Hi " name\<C-;>\<C-;>\<C-;>\<C-;>
+
+Expect clojure (Added a string and a brace):
+  (defn say-hello
+    ([] (println "Hello there"))
+    ([name] (println (str "Hello " name "! Hi " name))))
+
+Do:
+# Clear out some trailing braces
+  jf)DF]x
+# Auto append them
+  iunused\<C-;>\<C-o>$\<C-;>\<C-;>
+
+Expect clojure (Added a brace):
+  (defn say-hello
+    ([unused] (println "Hello there"))
+    ([name] (println (str "Hello " name))))
+
