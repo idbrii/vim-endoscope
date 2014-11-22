@@ -7,10 +7,11 @@ Do (append braces):
 # Clear out the trailing braces
   jjf)D
 # Auto append some
-  a "!"\<C-;>\<C-;>\<C-;>\<C-;>
+  a "!"\<Esc>a\<C-;>\<C-;>\<C-;>\<C-;>
 
-# This works in vim, but not in vader
-Expect clojure (TODO: Added a string and a brace):
+# Workaround junegunn/vader.vim#38: Add extra Esc.
+# Related to junegunn/vader.vim#37.
+Expect clojure (WORKAROUND: Added a string and a brace):
   (defn say-hello
     ([] (println "Hello there"))
     ([name] (println (str "Hello " name "!"))))
@@ -22,10 +23,10 @@ Given cpp:
   }
 
 Do (add function call):
-  jIspeak("hello\<C-;>\<C-;>
+  jIspeak("hello\<Esc>a\<C-;>\<Esc>a\<C-;>
 
-# This works in vim, but not in vader
-Expect cpp (TODO: Added new string wrapped in parens):
+# Workaround junegunn/vader.vim#38: Add extra Esc.
+Expect cpp (WORKAROUND: Added new string wrapped in parens):
   int main() {
     speak("hello");
     return 0;

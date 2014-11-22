@@ -78,10 +78,10 @@ Do:
 # Clear out some trailing quote and braces
   j2f"DF]x
 # Auto append them
-  iunused\<C-;>\<C-o>$\<C-;>\<C-;>\<C-;>
+  iunused\<C-;>\<Esc>$a\<C-;>\<Esc>a\<C-;>\<Esc>a\<C-;>
 
-# This works in vim, but not in vader
-Expect clojure (TODO: Added a quote and braces):
+# Workaround junegunn/vader.vim#38: Add extra Esc.
+Expect clojure (WORKAROUND: Added a quote and braces):
   (defn say-hello
     ([unused] (println "Hello there"))
     ([name] (println (str "Hello " name))))
