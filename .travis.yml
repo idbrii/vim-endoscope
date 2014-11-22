@@ -1,0 +1,23 @@
+language: vim
+
+before_script: |
+  git clone https://github.com/junegunn/vader.vim.git vader
+  git clone https://github.com/tpope/vim-sensible.git sensible
+
+  hg clone https://code.google.com/p/vim/
+  cd vim
+  # ./configure --with-features=huge --enable-rubyinterp --enable-pythoninterp
+  ./configure --with-features=huge
+  make
+  sudo make install
+  cd -
+
+script: |
+  /usr/local/bin/vim -Nu <(cat << VIMRC
+  set rtp+=vader
+  set rtp+=sensible
+  set rtp+=textobj-user
+  set rtp+=.
+  set rtp+=textobj-user/after
+  set rtp+=./after
+  VIMRC) -c 'Vader! test/*' > /dev/null
