@@ -20,9 +20,18 @@ function! s:CloseMatchingPair()
             \ 'synIDattr(synID(line("."), col("."), 0), "name") =~? "string"')
     endif
 
+    let c = ''
     if (lnum != 0) && (col != 0)
         " Found it above
         let c = getline(lnum)[col - 1]
+    elseif col('.') == col('$')
+        " Might be last character of line
+        let c = getline(line('.'))[col('.')-1]
+    endif
+
+    let g:closer_key = c
+
+    if has_key(pairs, c)
         return pairs[c]
     endif
 
