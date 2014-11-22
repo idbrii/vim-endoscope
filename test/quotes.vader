@@ -80,6 +80,7 @@ Do:
 # Auto append them
   iunused\<C-;>\<C-o>$\<C-;>\<C-;>\<C-;>
 
+# This works in vim, but not in vader
 Expect clojure (TODO: Added a quote and braces):
   (defn say-hello
     ([unused] (println "Hello there"))

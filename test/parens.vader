@@ -20,7 +20,7 @@ Do:
 # Auto append them
   iunused\<C-;>\<C-o>$\<C-;>\<C-;>
 
-Expect clojure (TODO: Added some text, a brace, and trailing braces):
+Expect clojure (Added some text, a brace, and trailing braces):
   (defn say-hello
     ([unused] (println "Hello there"))
     ([name] (println (str "Hello " name))))

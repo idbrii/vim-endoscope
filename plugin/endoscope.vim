@@ -14,6 +14,11 @@ function! s:is_string(col_pos)
     return synIDattr(synID(line("."), a:col_pos, 0), "name") =~? "string"
 endf
 
+function! s:is_next_to_unmatched(cursor_byte, unmatched_pairs)
+    let previous_char = getline(line('.'))[a:cursor_byte - 1]
+    return has_key(a:unmatched_pairs, previous_char)
+endf
+
 if !exists("g:endoscope_handle_quotes")
     let g:endoscope_handle_quotes = 1
 endif
@@ -35,8 +40,9 @@ function! s:CloseMatchingPair()
                    \ }
 
     let skip = ''
-    let prev_byte = col(".") - 1
-    if g:endoscope_handle_quotes && s:is_string(prev_byte)
+    " col is 1-indexed, so convert to 0-indexed.
+    let cursor_byte = col(".") - 1
+    if g:endoscope_handle_quotes && s:is_string(cursor_byte) && !s:is_next_to_unmatched(cursor_byte, unmatched_pairs)
         let pairs = unmatched_pairs
     else
         let pairs = matched_pairs
