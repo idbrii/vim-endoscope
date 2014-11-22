@@ -42,5 +42,10 @@ Ideally, I'd like endoscope to also add all `end` statements covered by tpope/en
 * progo on Stack Overflow for [the original close pairs implementation](1).
 * marklgr and hahiss on reddit for [adding quote support](2).
 
+
+### License
+
+MIT
+
 [1]: http://stackoverflow.com/a/6080996/79125
 [2]: http://www.reddit.com/r/vim/comments/2lnwqy/map_to_close_current_quote_bracket_or_paren/
