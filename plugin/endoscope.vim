@@ -4,7 +4,8 @@ function! s:join_and_escape(items)
 endf
 
 function! s:is_string(col_pos)
-    return synIDattr(synID(line("."), a:col_pos, 0), "name") =~? "string"
+    let syn_id = synIDattr(synID(line("."), a:col_pos, 0), "name")
+    return syn_id =~? "string\\|include"
 endf
 
 function! s:is_next_to_unmatched(cursor_byte, unmatched_pairs)

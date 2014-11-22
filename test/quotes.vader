@@ -11,7 +11,7 @@ Do:
 # Auto append it
   a.h\<C-;>
 
-Expect cpp (TODO: Modified end of include string):
+Expect cpp (Modified end of include string):
   #include "stream.h"
   int main() {
     ;
