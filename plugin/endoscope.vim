@@ -14,6 +14,10 @@ function! s:is_string(col_pos)
     return synIDattr(synID(line("."), a:col_pos, 0), "name") =~? "string"
 endf
 
+if !exists("g:endoscope_handle_quotes")
+    let g:endoscope_handle_quotes = 1
+endif
+
 " Return a corresponding pair to be sent to the buffer
 function! s:CloseMatchingPair()
 " Original close pairs:
@@ -30,13 +34,15 @@ function! s:CloseMatchingPair()
                    \  "'" : "'",
                    \ }
 
+    let skip = ''
     let prev_byte = col(".") - 1
-    if s:is_string(prev_byte)
+    if g:endoscope_handle_quotes && s:is_string(prev_byte)
         let pairs = unmatched_pairs
-        let skip = ''
     else
         let pairs = matched_pairs
-        let skip = 's:is_string(col("."))'
+        if g:endoscope_handle_quotes
+            let skip = 's:is_string(col("."))'
+        endif
     endif
     let [lnum, col] = searchpairpos("[". s:openers(pairs) ."]", '', "[". s:closers(pairs) ."]", 'nbW', skip)
 
