@@ -1,13 +1,6 @@
+
 function! s:join_and_escape(items)
     return escape(join(a:items, ''), ']"')
-endf
-
-function! s:openers(pairs)
-    return s:join_and_escape(keys(a:pairs))
-endf
-
-function! s:closers(pairs)
-    return s:join_and_escape(values(a:pairs))
 endf
 
 function! s:is_string(col_pos)
@@ -50,7 +43,11 @@ function! s:CloseMatchingPair()
             let skip = 's:is_string(col("."))'
         endif
     endif
-    let [lnum, col] = searchpairpos("[". s:openers(pairs) ."]", '', "[". s:closers(pairs) ."]", 'nbW', skip)
+
+    " Build the search patterns from the open/close-pair dictionary.
+    let open_pat  = "[". s:join_and_escape(keys(pairs))   ."]"
+    let close_pat = "[". s:join_and_escape(values(pairs)) ."]"
+    let [lnum, col] = searchpairpos(open_pat, '', close_pat, 'nbW', skip)
 
     if (lnum != 0) && (col != 0)
         " Found it above
