@@ -9,7 +9,7 @@ Do:
 # Auto append one
   a "! Hi " name\<C-;>\<C-;>\<C-;>\<C-;>
 
-Expect clojure (Added a string and a brace):
+Expect clojure (TODO: Added a string and a brace):
   (defn say-hello
     ([] (println "Hello there"))
     ([name] (println (str "Hello " name "! Hi " name))))
@@ -20,7 +20,7 @@ Do:
 # Auto append them
   iunused\<C-;>\<C-o>$\<C-;>\<C-;>
 
-Expect clojure (Added a brace):
+Expect clojure (TODO: Added some text, a brace, and trailing braces):
   (defn say-hello
     ([unused] (println "Hello there"))
     ([name] (println (str "Hello " name))))
