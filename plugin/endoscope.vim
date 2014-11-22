@@ -62,5 +62,9 @@ function! s:CloseMatchingPair()
     return ''
 endf
 
-inoremap <expr> <C-;> <SID>CloseMatchingPair()
+inoremap <expr> <Plug>(endoscope-close-pair) <SID>CloseMatchingPair()
+
+if !hasmapto('<Plug>(endoscope-close-pair)')
+    imap <C-;> <Plug>(endoscope-close-pair)
+endif
 
