@@ -9,7 +9,7 @@ Do:
 # Clear out a trailing quote
   $x
 # Auto append it
-  a.h\<C-;>
+  a.h\<C-S>
 
 Expect cpp (Modified end of include string):
   #include "stream.h"
@@ -20,7 +20,7 @@ Expect cpp (Modified end of include string):
 
 Do:
 # Add a new quoted string
-  2jIchar* c = "name\<C-;>
+  2jIchar* c = "name\<C-S>
 
 Expect cpp (Added new quoted string):
   #include "stream"
@@ -40,7 +40,7 @@ Do:
 # Clear out a trailing quote
   $x
 # Auto append it
-  a.h\<C-;>
+  a.h\<C-S>
 
 Expect python (Modified end of string):
   s = "stream.h"
@@ -49,7 +49,7 @@ Expect python (Modified end of string):
 
 Do:
 # Add a new quoted string
-  2j0wCreturn s == 'bream\<C-;>
+  2j0wCreturn s == 'bream\<C-S>
 
 Expect python (Added new quoted string):
   s = "stream"
@@ -67,7 +67,7 @@ Do:
 # Clear out some trailing quote and braces
   j2f"D
 # Auto append them
-  a\<C-;>
+  a\<C-S>
 
 Expect clojure (Added a quote):
   (defn say-hello
@@ -78,7 +78,7 @@ Do:
 # Clear out some trailing quote and braces
   j2f"DF]x
 # Auto append them
-  iunused\<C-;>\<Esc>$a\<C-;>\<Esc>a\<C-;>\<Esc>a\<C-;>
+  iunused\<C-S>\<Esc>$a\<C-S>\<Esc>a\<C-S>\<Esc>a\<C-S>
 
 # Workaround junegunn/vader.vim#38: Add extra Esc.
 Expect clojure (WORKAROUND: Added a quote and braces):

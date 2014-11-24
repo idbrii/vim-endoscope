@@ -73,6 +73,6 @@ endf
 inoremap <expr> <Plug>(endoscope-close-pair) <SID>CloseMatchingPair()
 
 if !hasmapto('<Plug>(endoscope-close-pair)')
-    imap <C-;> <Plug>(endoscope-close-pair)
+    imap <C-s> <Plug>(endoscope-close-pair)
 endif
 

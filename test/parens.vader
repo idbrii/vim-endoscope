@@ -7,7 +7,7 @@ Do:
 # Clear out the trailing braces
   jjf)D
 # Auto append one
-  a "! Hi " name\<C-;>\<C-;>\<C-;>\<C-;>
+  a "! Hi " name\<C-S>\<C-S>\<C-S>\<C-S>
 
 Expect clojure (Added a string and a brace):
   (defn say-hello
@@ -18,7 +18,7 @@ Do:
 # Clear out some trailing braces
   jf)DF]x
 # Auto append them
-  iunused\<C-;>\<C-o>$\<C-;>\<C-;>
+  iunused\<C-S>\<C-o>$\<C-S>\<C-S>
 
 Expect clojure (Added some text, a brace, and trailing braces):
   (defn say-hello

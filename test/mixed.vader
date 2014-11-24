@@ -7,7 +7,7 @@ Do (append braces):
 # Clear out the trailing braces
   jjf)D
 # Auto append some
-  a "!"\<Esc>a\<C-;>\<C-;>\<C-;>\<C-;>
+  a "!"\<Esc>a\<C-S>\<C-S>\<C-S>\<C-S>
 
 # Workaround junegunn/vader.vim#38: Add extra Esc.
 # Related to junegunn/vader.vim#37.
@@ -23,7 +23,7 @@ Given cpp:
   }
 
 Do (add function call):
-  jIspeak("hello\<Esc>a\<C-;>\<Esc>a\<C-;>
+  jIspeak("hello\<Esc>a\<C-S>\<Esc>a\<C-S>
 
 # Workaround junegunn/vader.vim#38: Add extra Esc.
 Expect cpp (WORKAROUND: Added new string wrapped in parens):
