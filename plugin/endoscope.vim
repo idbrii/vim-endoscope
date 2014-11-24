@@ -1,3 +1,11 @@
+" Endoscope - end your scope with a single keystroke
+"
+if exists('loaded_endoscope') || &cp || version < 700
+    finish
+endif
+let loaded_endoscope = 1
+
+
 if !exists("g:endoscope_handle_quotes")
     let g:endoscope_handle_quotes = 1
 endif
