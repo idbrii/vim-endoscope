@@ -1,3 +1,7 @@
+if !exists("g:endoscope_handle_quotes")
+    let g:endoscope_handle_quotes = 1
+endif
+
 
 function! s:join_and_escape(items)
     return escape(join(a:items, ''), ']"')
@@ -13,16 +17,12 @@ function! s:is_next_to_unmatched(cursor_byte, unmatched_pairs)
     return has_key(a:unmatched_pairs, previous_char)
 endf
 
-if !exists("g:endoscope_handle_quotes")
-    let g:endoscope_handle_quotes = 1
-endif
-
 " Return a corresponding pair to be sent to the buffer
 function! s:CloseMatchingPair()
-" Original close pairs:
-" http://stackoverflow.com/a/6080996/79125
-" Modification for quotes:
-" http://www.reddit.com/r/vim/comments/2lnwqy/map_to_close_current_quote_bracket_or_paren/
+    " Original close pairs:
+    " http://stackoverflow.com/a/6080996/79125
+    " Modification for quotes:
+    " http://www.reddit.com/r/vim/comments/2lnwqy/map_to_close_current_quote_bracket_or_paren/
 
     let matched_pairs = {'(' : ')',
                    \  '[' : ']',
