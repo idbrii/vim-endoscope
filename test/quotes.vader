@@ -86,3 +86,13 @@ Expect clojure (WORKAROUND: Added a quote and braces):
     ([unused] (println "Hello there"))
     ([name] (println (str "Hello " name))))
 
+
+
+Given vim (Open string):
+  let foo = "bar
+
+Do (TODO: Add a quote):
+  A\<C-S>
+
+Expect (Added quote):
+  let foo = "bar"
