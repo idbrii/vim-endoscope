@@ -1,0 +1,8 @@
+set rtp+=build/vader
+set rtp+=build/sensible
+set rtp+=build/textobj-user
+set rtp+=..
+set rtp+=build/textobj-user/after
+set rtp+=../after
+" Do not create .viminfo file.
+set viminfo=
