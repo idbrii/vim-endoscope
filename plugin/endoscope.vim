@@ -32,10 +32,14 @@ function! s:CloseMatchingPair()
     " Modification for quotes:
     " http://www.reddit.com/r/vim/comments/2lnwqy/map_to_close_current_quote_bracket_or_paren/
 
+    " TODO: Add support for requiring whitespace around pairs. This will allow
+    " differentiating between <angle brackets> and the inequality > symbol or
+    " 'single quotes' and a li'l apostrophe. However, it would still breakdown
+    " on >> much greater than or iostream.
+
     let matched_pairs = {'(' : ')',
                    \  '[' : ']',
                    \  '{' : '}',
-                   \  '<' : '>',
                    \ }
     let unmatched_pairs = {'"' : '"',
                    \  "'" : "'",
