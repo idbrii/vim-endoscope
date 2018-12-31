@@ -1,4 +1,4 @@
-language: vim
+language: minimal
 
 before_script: |
   git clone https://github.com/vim/vim
