@@ -27,8 +27,8 @@ need to navigate past the close scope character.
 
 Beware that CTRL-S won't work on terminals with flow control (if you
 accidentally freeze your terminal, use CTRL-Q to unfreeze it). See [How to
-unfreeze after accidentally pressing Ctrl-S in a terminal?](3) for how to avoid
-this and [What is the point of CTRL-s?](3) for why it happens.
+unfreeze after accidentally pressing Ctrl-S in a terminal?][3] for how to avoid
+this and [What is the point of CTRL-s?][4] for why it happens.
 
 ### Limitations
 
@@ -48,8 +48,8 @@ Ideally, I'd like endoscope to also add all `end` statements covered by tpope/en
 
 ### Thanks
 
-* progo on Stack Overflow for [the original close pairs implementation](1).
-* marklgr and hahiss on reddit for [adding quote support](2).
+* progo on Stack Overflow for [the original close pairs implementation][1].
+* marklgr and hahiss on reddit for [adding quote support][2].
 
 
 ### License
